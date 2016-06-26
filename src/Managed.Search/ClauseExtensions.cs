@@ -24,5 +24,10 @@
         {
             return new Query(clause);
         }
+
+        public static Query ToQuery(this Clause clause, int page, int pageSize)
+        {
+            return new Query(clause, page, pageSize);
+        }
     }
 }

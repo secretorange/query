@@ -34,7 +34,9 @@ var name = Query.Field("firstname", "spongebob").And().Field("lastname", "square
 
 var age = Query.Range("age", 30, 40);
 
-var luceneString = name.And(age).ToQuery().ToLuceneString();
+var luceneString = name.And(age).ToQuery(2 /* Page */, 10 /* Page Size */)
+                                .OrderByAscending("firstname")
+                                .ToLuceneString();
 
 // OUTPUT: (firstname:"spongebob" AND lastname:"squarepants" AND (age:[30 TO 40]))
 ```
