@@ -12,7 +12,7 @@ var luceneString = Query.Field("firstname", "spongebob").And().Field("lastname",
                    .ToQuery()
                    .ToLuceneString();
 
-Assert.Equal(luceneString, @"(firstname:""spongebob"" AND lastname:""squarepants"")");
+// OUTPUT: (firstname:"spongebob" AND lastname:"squarepants")
 ```
 
 ## Grouped AND Query
@@ -24,7 +24,7 @@ var age = Query.Field("age", 30).Or().Field("age", 31);
 
 var luceneString = name.And(age).ToQuery().ToLuceneString();
 
-Assert.Equal(luceneString, @"(firstname:""spongebob"" AND lastname:""squarepants"" AND (age:30 OR age:31))");
+// OUTPUT: (firstname:"spongebob" AND lastname:"squarepants" AND (age:30 OR age:31))
 ```
 
 ## Grouped AND Query with Range
